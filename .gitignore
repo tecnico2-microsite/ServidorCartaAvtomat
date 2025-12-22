@@ -1,3 +1,6 @@
-node_modules
+node_modules/
 package-lock.json
 .env.local
+*.ts.map
+build/
+*.d.ts
