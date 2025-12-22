@@ -18,10 +18,11 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@types/mssql": "^9.1.8",
     "@types/mysql": "^2.15.27",
     "dotenv": "^17.2.3",
     "express": "5.2.1",
-    "mysql2": "^3.16.0",
+    "mssql": "^12.2.0",
     "zod": "^4.2.1"
   }
 }
