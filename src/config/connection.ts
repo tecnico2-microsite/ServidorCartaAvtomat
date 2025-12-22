@@ -10,6 +10,7 @@ const config = {
   database: env.DB_NAME,
   options: {
     trustServerCertificate: true,
+    encrypt: false
   },
 };
 
