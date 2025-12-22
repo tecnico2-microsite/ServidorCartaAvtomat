@@ -3,10 +3,12 @@ import dotenv from 'dotenv'
 const envSchema = z.object({
     DB_URL:z.string().default('localhost'),
     DB_NAME:z.string(),
-    DB_PORT:z.string().default('1433').transform(Number),
+    DB_PORT:z.string().max(5).default('1433').transform(Number),
     DB_USER:z.string(),
     DB_PASS:z.string(),
-    APP_PORT:z.string().max(5),
+    APP_PORT:z.string().max(5).default('44222').transform(Number),
+    EXPORT_DATA_PATH_AND_FILE:z.string().includes("\\")
+
 })
 
 const envconfig = dotenv.config({path:'./.env.local'})
