@@ -85,7 +85,7 @@ export const parseMenuData = (dbData: DBItem[]): MenuResponse => {
       descripcion_adicional: item.OBSERVACION_WEB || "",
     };
 
-    if (item.NO_PUBLICAR_PRECIO !== "V") {
+    if (item.NO_PUBLICAR_PRECIO !== "T") {
       nuevoArticulo.precio = formatPrice(item.PRECIO_PVP1);
     }
 
