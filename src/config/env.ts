@@ -7,7 +7,6 @@ const envSchema = z.object({
     DB_USER:z.string(),
     DB_PASS:z.string(),
     APP_PORT:z.string().max(5).default('44222').transform(Number),
-    EXPORT_DATA_PATH_AND_FILE:z.string().includes("\\")
 
 })
 

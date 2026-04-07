@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc",
+    "tsc": "tsc && copy package*.json build && copy \".env\" \"build/.env.local\"",
     "dev": "tsx watch src/index.ts"
   },
   "keywords": [],
@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@types/mssql": "^9.1.8",
-    "@types/mysql": "^2.15.27",
     "dotenv": "^17.2.3",
     "express": "5.2.1",
     "mssql": "^12.2.0",
