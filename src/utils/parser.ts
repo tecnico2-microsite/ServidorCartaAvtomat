@@ -9,7 +9,7 @@ interface DBItem {
   DESCRIPCION_WEB: string;
   OBSERVACION_WEB: string;
   NO_PUBLICAR_PRECIO: string;
-  VISUALIZACION: string;
+  VISUALIZACION: string | undefined;
 }
 
 interface Articulo {

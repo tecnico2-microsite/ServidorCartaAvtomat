@@ -3,6 +3,14 @@ import { Request, Response, NextFunction } from "express";
 export class serverError extends Error {
   private _status: number = 500;
 
+  constructor(message: string, statusCode?: number) {
+    super(message); 
+    if (statusCode) {
+      this._status = statusCode;
+    }
+    Object.setPrototypeOf(this, new.target.prototype); 
+  }
+
   get statusCode(): number {
     return this._status;
   }
@@ -13,19 +21,21 @@ export class serverError extends Error {
 }
 
 export const errorHandler = (
-  err: serverError,
+  err: any, 
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
+  const code: number = err.statusCode || 500;
   
-  let message: string = "Internal server error!";
-  let code: number = 500;
-  if (err.statusCode == 404) {
-    message = "Not found!";
-    code = 404;
-  }
-  const body : string = `{error:{message:${message}, code:${code}}}`
-  res.json(body).status(code)
+  const message: string = err.message || "Internal server error!";
+
+  const body = {
+    error: {
+      message: message,
+      code: code
+    }
+  };
   console.error(err);
+  res.status(code).json(body);
 };
